@@ -43,7 +43,7 @@ footer .col {
     color: white;
     min-width: 100%;
     padding: 80px;
-    background-image: url("/images/heading-imgs/branches-countryside-daylight-environment-566496.jpg");
+    background-image: url("./images/heading-imgs/branches-countryside-daylight-environment-566496.jpg");
     background-size: cover;
     background-position-y: 20rem;
 }
@@ -51,7 +51,7 @@ footer .col {
     color: white;
     min-width: 100%;
     padding: 50px;
-    background-image: url("/images/heading-imgs/abandoned-forest-industry-nature-34950.jpg");
+    background-image: url("./images/heading-imgs/abandoned-forest-industry-nature-34950.jpg");
     background-size: cover;
     background-position-y: 22rem;
 }
