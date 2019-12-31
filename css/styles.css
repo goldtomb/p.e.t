@@ -1,0 +1,119 @@
+/* GLOBAL STYLES (?) */
+body {
+    text-align: center;
+}
+
+h1 {
+    margin: 30px;
+    color: white;
+}
+
+.nav-logo {
+    padding-left: 50px;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+
+footer {
+    padding: 30px 0px 20px 0px;
+    font-size: 0.8rem;
+}
+
+footer .col {
+    margin: auto;
+    display: inline-block;
+}
+
+.slogo {
+    color: #3D9AC6;
+}
+
+.slogo img {
+    width: 50%;
+    height: auto;
+}
+
+
+/* INDEX.HTML */
+
+.main-heading {
+    color: white;
+    min-width: 100%;
+    padding: 80px;
+    background-image: url("/images/heading-imgs/branches-countryside-daylight-environment-566496.jpg");
+    background-size: cover;
+    background-position-y: 20rem;
+}
+.secondary-heading {
+    color: white;
+    min-width: 100%;
+    padding: 50px;
+    background-image: url("/images/heading-imgs/abandoned-forest-industry-nature-34950.jpg");
+    background-size: cover;
+    background-position-y: 22rem;
+}
+.carousel {
+    width: 50%;
+    margin: auto;
+    display: block;
+    padding: 30px;
+}
+
+.intro-content {
+    margin: auto;
+    padding: 30px;
+    display: block;
+    font-size: 1rem;
+}
+
+.intro-content p {
+    padding: 30px;
+}
+
+/* CLASSES.HTML */
+
+.schedule .col {
+    padding: 30px;
+}
+
+.classes-container {
+    padding: 30px;
+
+}
+.classes-container .col{
+    padding-bottom: 30px;
+}
+
+.card {
+    margin: auto;
+}
+
+.c-question {
+    color: white;
+    background-color: #6AB443;
+    padding: 30px;
+}
+
+/* ABOUT.HTML */
+
+.about-container {
+    padding: 30px;
+
+}
+
+.about-container h3 {
+    
+    font-size: 1.5rem;
+}
+.about-container p {
+    text-align: left;
+    font-size: 1rem;
+}
+
+.form-section {
+    padding: 30px;
+    margin: 0px 300px 0px 380px;
+}

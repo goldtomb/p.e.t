@@ -1,0 +1,40 @@
+{
+    "classes": [
+        {
+            "id": 1,
+            "name": "Birth Class",
+            "date": "December 1, 2019", 
+            "instructor": "Hermes Trismagistus", 
+            "description": "Class 1", 
+            "duration": "1 Week: MWF 2:00-2:30 P.M.",
+            "cost": "10000" 
+        },
+        {
+            "id": 2,
+            "name": "Crawl Class",
+            "date": "February 27, 2020", 
+            "instructor": "Hermes Trismagistus", 
+            "description": "Class 2", 
+            "duration": "2 Week: MF 4:00-6:30 P.M.",
+            "cost": "20000" 
+        },
+        {
+            "id": 3,
+            "name": "Walk Class",
+            "date": "June 21, 2020", 
+            "instructor": "Hermes Trismagistus", 
+            "description": "Class 3", 
+            "duration": "3 Week: TuTh 1:00-4:30 P.M.",
+            "cost": "30000" 
+        },
+        {
+            "id": 4,
+            "name": "Run Class",
+            "date": "October 30, 2020", 
+            "instructor": "Hermes Trismagistus", 
+            "description": "Class 4", 
+            "duration": "1 Week: MWF 2:00-2:30 P.M.",
+            "cost": "35000" 
+        }
+    ]
+}
