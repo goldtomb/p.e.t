@@ -1,0 +1,193 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <title>Checkout - Parra Environmental Training</title>
+
+    <!-- <script src="/scripts/checkout.js"> -->
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">
+            <img class="nav-logo" style=" display: flex; width: 50%; height: auto;" src="/images/pet.png" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        Home <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Classes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col checkout-col" data-class-id="<%=classes.id%>" style="width: 80%; height: auto">
+                
+                <h1 style="color: black"> Welcome, <%= classes.firstname %>. </h1>
+                <h2 class="className" style="color: black">You are signing up for the <%= classes.className %>.</h2>
+                <h3 class="date" style="color: black"> This class will begin on <%= classes.date %> </h3
+                    style="color: black">
+                <h3 class="description" style="color: black"><%=classes.description %> </h3 style="color: black">
+                <h3 class="price" style="color: black"><%="Total: $" + ( classes.price / 100 ) +".00" %> </h3
+                    style="color: black">
+
+                <div id="shop">
+                    <button class="btn btn-primary stripe-button">Checkout</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ./container-fluid -->
+
+    <footer>
+        <div class="container-fluid footer-content">
+            <div class="row">
+                <div class="col">
+                    <div class="copyright">
+                        Copyright &copy; 2019 <br>
+                        Parra Environmental Training
+                    </div>
+                    <!-- ./copyright -->
+                </div>
+                <div class="col">
+                    <div class="footer-contact">
+                        1234 Street Dr.<br>
+                        City, State<br>
+                        Zipcode<br>
+                        Tel: (510)-200-3091<br>
+                        Email: Hermes@Parraenviro.com<br>
+                    </div>
+                    <!-- ./footer-contact -->
+                    <br>
+                </div>
+                <!-- ./footer-col -->
+                <div class="col">
+                    <div class="slogo">
+                        "Training Done Right"<br>
+                        <img src="/images/PET.png" />
+                    </div>
+                    <!-- ./slogo -->
+                </div>
+            </div>
+            <!-- ./col -->
+        </div>
+        <!-- ./footer-content -->
+    </footer>
+    <!-- ./footer -->
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <!-- Scripts -->
+    <script>
+        // config for StripeCheckout, init using publishableKey
+        var checkoutHandler = StripeCheckout.configure({
+            key: '<%=publicKey %>',
+            locale: "auto",
+            token: handleToken
+        });
+
+        // gets price
+        var priceElement = document.getElementsByClassName("price")[0];
+        var parsed = parseFloat(priceElement.innerText.replace('Total: $', '')) * 100;
+        // set price = parsed value
+        var price = parsed;
+
+        // get name
+        const name = "<%=classes.firstname%>" + " " + "<%= classes.lastname %>"
+        // get description
+        var description = document.getElementsByClassName("description")[0].innerText;
+
+        // get checkoutButton, set currentPrice
+        // add stripe functionality to button
+        var checkoutButton = document.getElementsByClassName("stripe-button")[0];
+        const currentPrice = price;
+        // when button is clicked
+        checkoutButton.addEventListener("click", function (ev) {
+            //create an array to hold the 
+            checkoutHandler.open({
+                image: "/images/PET.png",
+                amount: currentPrice,
+                name: "Parra Environmental Training",
+                description: description
+            });
+        });
+     
+
+        function handleToken(token) {
+            // get id of class from column element
+            const classCol = document.getElementsByClassName('checkout-col')[0];
+            const classId = classCol.dataset.classId;
+
+            // charge request sent to server
+            fetch("/charge", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                    },
+                    body: JSON.stringify({
+                        token,
+                        classId,
+                        customerName: name
+                    })
+                })
+                .then(response => {
+                    if (!response.ok)
+                        throw response;
+                    return response.json();
+                })
+                .then(output => {
+                    console.log("Purchase succeeded:", output);
+                })
+                .catch(err => {
+                    console.log("Purchase failed:", err);
+                })
+        }
+    </script>
+</body>
+
+
+</html>

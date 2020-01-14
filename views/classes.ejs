@@ -10,21 +10,18 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
     <!-- Main Styles -->
-    <link rel="stylesheet" href="css/styles.css" />
-
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="https://checkout.stripe.com/checkout.js"></script>
     <title>Classes - Parra Environmental Training</title>
 
-    <!-- Scripts -->
-    <script src="scripts/checkout.js" async>
-    </script>
-
+    <!-- <script src="/scripts/checkout.js"> -->
 </head>
 
 <body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="index.html">
-            <img class="nav-logo" style=" display: flex; width: 50%; height: auto;" src="images/PET.png" />
+            <img class="nav-logo" style=" display: flex; width: 50%; height: auto;" src="/images/pet.png" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,151 +73,117 @@
         </div>
         <!-- ./schedule -->
 
+
         <!-- Classes Section -->
         <div class="classes-container">
             <div class="row">
-                <div class="col">
-                    <div class="card" style="width: 18rem; margin: auto;">
+                <div class="col-sm-12" style="display: inline-flex;  flex-wrap: wrap;">
+
+                    <% items.classes.forEach(function(item) { %>
+                    <div class="card" data-item-id='<%= item.id %>' style="width: 18rem; margin: auto;">
                         <!-- <img src="..." class="card-img-top" alt="..."> -->
                         <div class="card-body">
-                            <h5 class="card-title">Class 1</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <h5 class="card-title"> <%= item.name %> </h5>
+                            <p class="card-text"><%= item.description %></p>
+
                             <button type="button" class="btn btn-info" data-toggle="modal"
-                                data-target="#exampleModalCenter">
+                                data-target="#exampleModalCenter<%= item.id %>">
                                 Learn More
                             </button>
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="exampleModalCenter<%= item.id %>" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Class 1</h5>
+                                            <h5 class="modal-title" id="exampleModalLongTitle"><%= item.name %></h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col-md-6 class-info px-5">
-                                                    <h3>
-                                                        Instructor: Hermes Trismagistus
-                                                    </h3>
-                                                </div>
-                                                <div class="col-md-6 class-select">
-                                                    ho
+                                        <div class="modal-body" style="font-size: 10px;">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col class-info px-5">
+                                                        <form class="class-form" action="/checkout" method="POST">
+                                                            <input type="hidden" name="id" value="<%= item.id %>">
+                                                            <input type="hidden" name="className"
+                                                                value="<%= item.name %>">
+                                                            <div class="instructor">
+
+                                                                <input type="hidden" name="instructor"
+                                                                    value="<%= item.instructor %>">
+                                                                <h4>Instructor: <%= item.instructor %></h4><br>
+                                                            </div>
+                                                            <div class="date">
+                                                                <input type="hidden" name="date"
+                                                                    value="<%= item.date %>">
+                                                                <h4>Date: <%= item.date %></h4><br>
+                                                            </div>
+                                                            <div class="duration">
+                                                                <input type="hidden" name="duration"
+                                                                    value="<%= item.duration %>">
+
+                                                                <h4>Duration: <%= item.duration %></h4><br>
+                                                            </div>
+                                                            <div class="description">
+                                                                <input type="hidden" name="description"
+                                                                    value="<%= item.description %>">
+                                                                <h4>Description: <%= item.description %></h4><br>
+                                                            </div>
+                                                            <div class="price">
+                                                                <input type="hidden" name="price"
+                                                                    value="<%= item.price %>">
+                                                                <h4><%= "$" + (item.price / 100)+".00" %></h4>
+                                                            </div><br>
+                                                            <hr>
+                                                            <div class="customerName">
+                                                                <h4>Ready to sign up?</h4>
+                                                                <h4>Enter your name.</h4>
+                                                                <input type="text" name="firstname" required="true"
+                                                                    placeholder="First Name">
+                                                                <input type="text" name="lastname" required="true"
+                                                                    placeholder="Last Name">
+                                                            </div><br>
+                                                            <input class="btn btn-primary" type="submit"
+                                                                value="Sign Up">
+                                                        </form>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
                                         </div>
                                     </div>
-                                </div>˝
+
+                                </div>
+
                             </div>
-                            <!-- ./modal -->
                         </div>
+                        <!-- ./modal -->
                     </div>
                 </div>
-                <!-- ./col -->
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <!-- <img src="..." class="card-img-top" alt="..."> -->
-                        <div class="card-body">
-                            <h5 class="card-title">Class 2</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <button type="button" class="btn btn-info" data-toggle="modal"
-                                data-target="#exampleModalCenter2">
-                                Learn More
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Class 2</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            ...
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>˝
-                            </div>
-                            <!-- ./modal -->
-                        </div>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <!-- <img src="..." class="card-img-top" alt="..."> -->
-                        <div class="card-body">
-                            <h5 class="card-title">Class 3</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <button type="button" class="btn btn-info" data-toggle="modal"
-                                data-target="#exampleModalCenter3">
-                                Learn More
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Class 3</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            ...
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>˝
-                            </div>
-                            <!-- ./modal -->
-                        </div>
-                    </div>
-                </div>
-                <!-- ./col -->
+                <% }); %>
             </div>
-            <!-- ./row -->
-
-
-
-
+            <!-- ./col -->
         </div>
-        <!-- ./classes-container -->
+        <!-- ./row -->
+    </div>
+    <!-- ./classes-container -->
 
 
-        <!-- Question Section -->
-        <div class="secondary-heading" style="background-color: #6AB443;">
-            <h1>
-                Have any questions? Contact Us.
-            </h1>
+    <!-- Question Section -->
+    <div class="secondary-heading" style="background-color: #6AB443;">
+        <h1>
+            Have any questions? Contact Us.
+        </h1>
 
-            <a href="" class="btn btn-success">Contact Us</a>
-        </div>
-        <!-- ./heading -->
+        <a href="" class="btn btn-success">Contact Us</a>
+    </div>
+    <!-- ./heading -->
 
     </div>
     <!-- ./container-fluid -->
@@ -250,7 +213,7 @@
                 <div class="col">
                     <div class="slogo">
                         "Training Done Right"<br>
-                        <img src="images/PET.png" />
+                        <img src="/images/PET.png" />
                     </div>
                     <!-- ./slogo -->
                 </div>
@@ -272,10 +235,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
-    <script>
-
-
-    </script>
 </body>
+
 
 </html>

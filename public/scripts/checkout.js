@@ -109,12 +109,21 @@ function addItemToCart(title, price, imgSource) {
     // cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged);
 }
 
-function purchaseClicked() {
-    alert("thanks");
-    var cartItems = document.getElementsByClassName('cart-items')[0];
-    while(cartItems.hasChildNodes()) {
-        cartItems.removeChild(cartItems.firstChild);
+var stripeHandler = StripeCheckout.configure({
+    key: stripePublicKey,
+    locale: 'auto',
+    token: function(token) {
+         
     }
+})
+
+function purchaseClicked() {
+    // alert("thanks");
+    // var cartItems = document.getElementsByClassName('cart-items')[0];
+    // while(cartItems.hasChildNodes()) {
+    //     cartItems.removeChild(cartItems.firstChild);
+    // }
+
     updateCartTotal();
 }
 
