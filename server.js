@@ -24,7 +24,13 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', (req, res) => {
-    res.render('/index.html');
+    res.sendFile('/index.html');
+})
+app.get('/about', (req, res) => {
+    res.sendFile('/about.html');
+})
+app.get('/contact', (req, res) => {
+    res.sendFile('/contact.html');
 })
 
 app.get('/classes', (req, res) => {
