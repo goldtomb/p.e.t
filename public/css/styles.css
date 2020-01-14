@@ -1,23 +1,55 @@
 /* GLOBAL STYLES (?) */
 body {
     text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+button {
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+.btn {
+    margin: auto;
+}
+html {
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
-h1 {
-    margin: 30px;
-    color: white;
+::-webkit-scrollbar {
+    width: 0px;
+    /* Remove scrollbar space */
 }
 
-.nav-logo {
-    padding-left: 50px;
+h1, h2{
+    margin: auto;
+    padding: 50px;
+}
+
+.navbar {
+    padding: 20px;
+    display: flex
+}
+
+.navbar-nav {
+    margin: auto;
+    display: flex;
+}
+.navbar-brand {
+    padding-left: 15px;
+    display: block;
+    margin: auto;
+}
+.nav-item {
+    padding-left: 15px;
 }
 
 .container-fluid {
-    padding: 0px;
+    padding: 0;
 }
 
-
 footer {
+    color: white;
     padding: 30px 0px 20px 0px;
     font-size: 0.8rem;
 }
@@ -27,9 +59,10 @@ footer .col {
     display: inline-block;
 }
 
+/* 
 .slogo {
     color: #3D9AC6;
-}
+} */
 
 .slogo img {
     width: 50%;
@@ -40,20 +73,22 @@ footer .col {
 /* INDEX.HTML */
 
 .main-heading {
-    color: white;
+    background-color: #6AB443;
     min-width: 100%;
-    padding: 80px;
-    background-image: url("/images/heading-imgs/branches-countryside-daylight-environment-566496.jpg");
-    background-size: cover;
-    background-position-y: 20rem;
+    padding: 40px;
 }
+
 .secondary-heading {
     color: white;
     min-width: 100%;
     padding: 50px;
     background-image: url("/images/heading-imgs/abandoned-forest-industry-nature-34950.jpg");
     background-size: cover;
-    background-position-y: 22rem;
+    background-position: center;
+}
+.logo-img {
+    width: 200px;
+    display: inline-flex;
 }
 .carousel {
     width: 50%;
@@ -64,15 +99,66 @@ footer .col {
 
 .intro-content {
     margin: auto;
-    padding: 30px;
+    padding: 40px;
     display: block;
     font-size: 1rem;
+    color: white;
+    background-image: url('/images/heading-imgs/environment-forest-grass-leaves-142497.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.intro-content p {
+.intro-content h1 {
     padding: 30px;
+    font-size: 68px;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px black;
 }
 
+.intro-content .row .col .card {
+    padding: 40px;
+}
+
+.secondary-content {
+    color: white;
+    background-color: skyblue;
+    padding: 60px;
+    margin: auto;
+    display: block;
+}
+.secondary-content .about-link {
+    padding: 20px;
+}
+.secondary-content a {
+    width: 200px;
+    height: 50px;
+    line-height: 35px;
+    margin: auto;
+}
+
+.choose {
+    color: white;
+    padding: 50px;
+    margin: auto;
+    display: block;
+    background-color: #0E8141;
+}
+.choose a{
+    width: 200px;
+    height: 50px;
+    line-height: 35px;
+    margin: auto;
+}
+.small-gallery {
+    background-color: skyblue;
+}
+
+.imgGrid {
+    padding: 40px;
+    max-width: 100%;
+    margin: auto;
+    display: inline-flex;
+}
 /* CLASSES.HTML */
 
 .schedule .col {
@@ -83,12 +169,15 @@ footer .col {
     padding: 30px;
 
 }
-.classes-container .col{
+
+.classes-container .col {
     padding-bottom: 30px;
 }
 
 .card {
     margin: auto;
+    background: #67B345;
+    border-radius: 50%;
 }
 
 .c-question {
@@ -105,9 +194,10 @@ footer .col {
 }
 
 .about-container h3 {
-    
+
     font-size: 1.5rem;
 }
+
 .about-container p {
     text-align: left;
     font-size: 1rem;

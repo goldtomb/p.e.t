@@ -12,37 +12,36 @@
   <!-- Main Styles -->
   <link rel="stylesheet" href="css/styles.css" />
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto&display=swap" rel="stylesheet">
   <title>Home - Parra Environmental Training</title>
 </head>
 
 <body>
   <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="">
-      <img class="nav-logo" style=" display: flex; width: 50%; height: auto;" src="images/PET.png" />
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0E8141;">
+    <a class="navbar-brand" href="/">
+      Parra Environmental Training
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav justify-content-end">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/">
-              Home <span class="sr-only"></span>
+          <a class="nav-link active" href="/">
+            Home <span class="sr-only"></span>
           </a>
-      </li>
-      <li class="nav-item">
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/classes">Classes</a>
-      </li>
-      <li class="nav-item">
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="about.html">About</a>
-      </li>
-      <li class="nav-item">
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="contact.html">Contact</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
         </li>
       </ul>
     </div>
@@ -50,8 +49,7 @@
 
   <!-- Page Content -->
   <div class="container-fluid">
-
-<!-- 
+    <!-- 
       <div class="main-heading">
         <!-- Main Heading 
         <h1> Training Done Right</h1>
@@ -98,35 +96,50 @@
       </div>
       ./slide-section
  -->
-    <!-- Introduction Section -->
-    <div class="main-heading" >
-      <!-- Intro Heading -->
-      <h1>
-        Parra Environmental Training
-      </h1>
-      <br>
-    </div>
-    <!-- ./heading -->
-
     <div class="intro-content">
+      <h1>Training Done Right</h1>
       <div class="row">
-        <div class="col"></div>
         <div class="col">
-          <h5>Lorem.</h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni voluptates consequuntur quod porro
-            suscipit
-            velit, illo qui nam. Omnis beatae libero ut aliquam, illum quidem rerum in quos excepturi nesciunt?
-          </p>
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Asbestos</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            </div>
+          </div>
         </div>
         <!-- ./col -->
-        <div class="col"></div>
-      </div>
-      <!-- ./row -->
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Lead</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">EPA </h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
 
+      </div> <!-- ./row -->
+    </div>
+    <!-- ./intro-content -->
+
+    <div class="secondary-content">
+      <img class="logo-img" src="images/PET.png" />
+      <h1> Parra Environmental Training </h1>
       <div class="row">
         <div class="col">
-          <h5>Lorem ipsum dolor sit amet.</h5>
+          <h3>Safety is Our Priority</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut corporis eum deleniti corrupti et tenetur
             accusamus esse ullam vitae ratione voluptate enim asperiores, aliquid, beatae impedit sapiente sed
@@ -139,7 +152,7 @@
         </div>
         <!-- ./col -->
         <div class="col">
-          <h5>Lorem, ipsum dolor.</h5>
+          <h3>Highest Standards</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut corporis eum deleniti corrupti et tenetur
             accusamus esse ullam vitae ratione voluptate enim asperiores, aliquid, beatae impedit sapiente sed
@@ -156,24 +169,36 @@
         <!-- ./col -->
       </div>
       <!-- ./row -->
+      <div class="about-link"><a href="about.html" class="btn btn-info">Learn More</a></div>
+    </div>
+    <div class="choose">
+      <div class="row">
+        <h2>Find A Class That's Right For You</h2>
+        <a href="/classes" class="btn btn-success">Choose A Class</a>
+      </div>
+    </div>
+    <!-- Introduction Section -->
+    <div class="small-gallery">
+      <div class="row">
+        <div class="col"><img class="imgGrid" src="images/heading-imgs/meeting.jpg " /> </div>
+        <div class="col"><img class="imgGrid" src="images/heading-imgs/safety.jpeg " /> </div>
+        <div class="col"><img class="imgGrid" src="images/heading-imgs/planning.jpeg " /> </div>
+      </div>
+      <br>
       <div class="row">
         <div class="col"></div>
-        <div class="col">
-          <a href="/classes" class="btn btn-info">Choose A Class</a>
-        </div>
+        <div class="col"></div>
         <div class="col"></div>
       </div>
     </div>
-    <!-- ./intro-content -->
-
-
+    <!-- ./heading -->
     <!-- Question Section -->
     <div class="secondary-heading" style="background-color: #6AB443;">
       <h1>
         Have any questions? Contact Us.
       </h1>
-      
-      <a href="contact.html" class="btn btn-success">Contact Us</a>
+
+      <a href="/contact.html" class="btn btn-success">Contact Us</a>
     </div>
     <!-- ./heading -->
 
@@ -181,7 +206,7 @@
   <!-- ./container -->
 
 
-  <footer>
+  <footer style="background-color: #8CC754;">
     <div class="container-fluid footer-content">
       <div class="row">
         <div class="col">
